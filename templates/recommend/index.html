@@ -1,0 +1,25 @@
+<!-- myapp/templates/myapp/search.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>recommend</title>
+</head>
+<body>
+    <h1>recommend</h1>
+
+    <form method="get" action="{% url 'index' %}">
+        <input type="text" name="q" placeholder="Enter id" value="{{ query }}">
+        <button type="submit">OK</button>
+    </form>
+
+    <h2>Results:</h2>
+    <ul>
+        {% for result in results %}
+            <li>{{ result }}</li>  <!-- 假设 result 有 name 属性 -->
+        {% empty %}
+            <li>No results found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
